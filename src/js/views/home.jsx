@@ -4,6 +4,7 @@ import { Characters } from "../component/characters.jsx";
 import { Vehicle } from "../component/vehicle.jsx";
 import { Planets } from "../component/planets.jsx";
 
+
 export const Home = () => {
   const [personajes, setPersonajes] = useState([]);
   const [vehiculos, setVehiculos] = useState([]);
@@ -43,6 +44,7 @@ export const Home = () => {
       {personajes.map((cadaPersonaje, index) => (
         <Characters
           key={index}
+          id={index+1}
           nombrePersonaje={cadaPersonaje.name}
           generoPersonaje={cadaPersonaje.gender}
 		  ColorOjosPersonaje={cadaPersonaje.eye_color}
@@ -54,6 +56,7 @@ export const Home = () => {
       {vehiculos.map((cadaVehiculo, index) => (
         <Vehicle
           key={index}
+          id={index+1}
           nombreVehiculo={cadaVehiculo.name}
           modeloVehiculo={cadaVehiculo.model}
         />
@@ -64,6 +67,7 @@ export const Home = () => {
 	  {planetas.map((cadaPlaneta, index) => (
         <Planets
           key={index}
+          id={index+1}
           nombrePlaneta={cadaPlaneta.name}
           diametroPlaneta={cadaPlaneta.diameter}
 		  climaPlaneta={cadaPlaneta.climate}

@@ -1,8 +1,9 @@
 
-import React from "react";
-// import { Link } from "ract-router-dom";
+import React,{useEffect} from "react";
+import { Link, useParams} from "react-router-dom";
 
-export const Planets = ({ nombrePlaneta, diametroPlaneta, climaPlaneta}) => {
+
+export const Planets = ({ nombrePlaneta, diametroPlaneta, climaPlaneta,id}) => {
     return ( 
     <div className="card" style={{ width: "18rem" }}>
       <img
@@ -15,7 +16,7 @@ export const Planets = ({ nombrePlaneta, diametroPlaneta, climaPlaneta}) => {
         <p className="card-text"> {diametroPlaneta} </p>
         <p className="card-text"> {climaPlaneta} </p>
         <p className="card-text mt-2"> 30, 00 US$. </p>
-        <button> Learn More </button>
+        <Link to={"/viewPlanets/"+id} className="btn btn-primary"> Detalles del planeta:{id}</Link>
         <a
           href="https://www.funko.com/search?term=one%20piece"
           className="btn  bg-warning text-dark border border-0 mt-3"
