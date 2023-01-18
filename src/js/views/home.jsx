@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import "../../styles/home.css";
 import { Characters } from "../component/characters.jsx";
 import { Vehicle } from "../component/vehicle.jsx";
 import { Planets } from "../component/planets.jsx";
-
+import { Context } from "../store/appContext.js";
 
 export const Home = () => {
-  const [personajes, setPersonajes] = useState([]);
+  const {store}=useContext(Context)
   const [vehiculos, setVehiculos] = useState([]);
   const [planetas, setPlanetas] = useState([]);
 
-  function obtenerInfoPersonajes() {
-    fetch("https://swapi.dev/api/people/")
-      .then((res) => res.json())
-      .then((data) => setPersonajes(data.results))
-      .catch((err) => console.error(err));
-  }
+  // function obtenerInfoPersonajes() {
+  //   fetch("https://swapi.dev/api/people/")
+  //     .then((res) => res.json())
+  //     .then((data) => setPersonajes(data.results))
+  //     .catch((err) => console.error(err));
+  // }
 
   function obtenerInfoVehiculos() {
     fetch("https://swapi.dev/api/vehicles/")
@@ -32,7 +32,7 @@ export const Home = () => {
   
 
   useEffect(() => {
-    obtenerInfoPersonajes();
+    // obtenerInfoPersonajes();
 	obtenerInfoVehiculos();
 	obtenerInfoPlanetas();
   }, []);
@@ -41,7 +41,7 @@ export const Home = () => {
     <div className="container text-center">
 		<h1>PERSONAJES</h1>
 		<div>
-      {personajes.map((cadaPersonaje, index) => (
+      {store.personajes.map((cadaPersonaje, index) => (
         <Characters
           key={index}
           id={index+1}
