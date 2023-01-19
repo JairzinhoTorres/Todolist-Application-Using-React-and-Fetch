@@ -14,7 +14,7 @@ export const Vehicle = ({ modeloVehiculo,nombreVehiculo,id }) => {
         <h5 className="card-title"> {nombreVehiculo} </h5>
         <p className="card-text"> {modeloVehiculo} </p>
         <p className="card-text mt-2"> 20, 00 US$. </p>
-        <Link to={"/viewPlanets/"+id} className="btn btn-primary"> Detalles de los viehiculos:{id}</Link>
+        <Link to={"/viewVehicle/"+id} className="btn btn-primary"> Detalles de los viehiculos:{id}</Link>
         <a
           href="https://www.funko.com/search?term=one%20piece"
           className="btn  bg-warning text-dark border border-0 mt-3"

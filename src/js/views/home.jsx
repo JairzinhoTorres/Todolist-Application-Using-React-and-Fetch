@@ -7,8 +7,8 @@ import { Context } from "../store/appContext.js";
 
 export const Home = () => {
   const {store}=useContext(Context)
-  const [vehiculos, setVehiculos] = useState([]);
-  const [planetas, setPlanetas] = useState([]);
+  // const [vehiculos, setVehiculos] = useState([]);
+  // const [planetas, setPlanetas] = useState([]);
 
   // function obtenerInfoPersonajes() {
   //   fetch("https://swapi.dev/api/people/")
@@ -17,25 +17,25 @@ export const Home = () => {
   //     .catch((err) => console.error(err));
   // }
 
-  function obtenerInfoVehiculos() {
-    fetch("https://swapi.dev/api/vehicles/")
-      .then((res) => res.json())
-      .then((data) => setVehiculos(data.results))
-      .catch((err) => console.error(err));
-  }
-  function obtenerInfoPlanetas() {
-    fetch("https://swapi.dev/api/planets/")
-      .then((res) => res.json())
-      .then((data) => setPlanetas(data.results))
-      .catch((err) => console.error(err));
-  }
+  // function obtenerInfoVehiculos() {
+  //   fetch("https://swapi.dev/api/vehicles/")
+  //     .then((res) => res.json())
+  //     .then((data) => setVehiculos(data.results))
+  //     .catch((err) => console.error(err));
+  // }
+  // function obtenerInfoPlanetas() {
+  //   fetch("https://swapi.dev/api/planets/")
+  //     .then((res) => res.json())
+  //     .then((data) => setPlanetas(data.results))
+  //     .catch((err) => console.error(err));
+  // }
   
 
-  useEffect(() => {
-    // obtenerInfoPersonajes();
-	obtenerInfoVehiculos();
-	obtenerInfoPlanetas();
-  }, []);
+  // useEffect(() => {
+  //   // obtenerInfoPersonajes();
+	// // obtenerInfoVehiculos();
+	// // obtenerInfoPlanetas();
+  // }, []);
 
   return (
     <div className="container text-center">
@@ -53,7 +53,7 @@ export const Home = () => {
 	  </div>
 	  <div>
 	  <p>VEHICULOS</p>
-      {vehiculos.map((cadaVehiculo, index) => (
+      {store.vehiculos.map((cadaVehiculo, index) => (
         <Vehicle
           key={index}
           id={index+1}
@@ -64,7 +64,7 @@ export const Home = () => {
 	  </div>
 <div>
 <p>PLANETAS</p>
-	  {planetas.map((cadaPlaneta, index) => (
+	  {store.planetas.map((cadaPlaneta, index) => (
         <Planets
           key={index}
           id={index+1}

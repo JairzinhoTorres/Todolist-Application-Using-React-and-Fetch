@@ -13,18 +13,38 @@ const getState = ({ getStore, getActions, setStore }) => {
           initial: "white",
         },
       ],
-	  personajes:[]
+	  personajes:[],
+	  vehiculos:[],
+	  planetas:[]
     },
     actions: {
       // Use getActions to call a function within a fuction
-      exampleFunction: () => {
-        getActions().changeColor(0, "green");
-      },
+	  
+    //   exampleFunction: () => {
+    //     getActions().changeColor(0, "green");
+	// Este es el fetch de personajes
+    //   },
 	  obtenerInfoPersonajes: () => {
         fetch("https://swapi.dev/api/people/")
       .then((res) => res.json())
       .then((data) => setStore({personajes:data.results}))
       .catch((err) => console.error(err));
+      },
+
+// Este es el fetch de vehiculos
+		obtenerInfoVehiculos: () => {
+		fetch("https://swapi.dev/api/vehicles/")
+		.then((res) => res.json())
+		.then((data) => setStore({vehiculos:data.results}))
+		.catch((err) => console.error(err));
+      },
+
+	  // Este es el fetch de los planetas
+	  obtenerInfoPlanetas: () => {
+		fetch("https://swapi.dev/api/planets/")
+		.then((res) => res.json())
+		.then((data) => setStore({planetas:data.results}))
+		.catch((err) => console.error(err));
       },
 	  
       loadSomeData: () => {
