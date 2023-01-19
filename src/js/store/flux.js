@@ -15,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       ],
 	  personajes:[],
 	  vehiculos:[],
-	  planetas:[]
+	  planetas:[],
+    favoritos:[]
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -52,6 +53,20 @@ const getState = ({ getStore, getActions, setStore }) => {
                 	fetch().then().then(data => setStore({ "foo": data.bar }))
                 */
       },
+
+      agregarFavorito: (favorito) => {
+      console.log("funciona")
+      let store = getStore() //aca declaro una variable store y guardo la llamada del objeto store del flux
+      setStore({favoritos:[...store.favoritos, favorito]}) // aca seteamos, con set store, seteamos el valor de la propiedad favorito del objeto store ...store.favoritos
+      },
+      eliminarFavorito: (favorito) => {
+        console.log("funciona")
+        let store = getStore() //aca declaro una variable store y guardo la llamada del objeto store del flux
+        setStore({favoritos:store.favoritos.filter(fav => fav !== favorito)}) // aca seteamos, con set store, seteamos el valor de la propiedad favorito del objeto store ...store.favoritos
+	
+        },
+
+
       changeColor: (index, color) => {
         //get the store
         const store = getStore();

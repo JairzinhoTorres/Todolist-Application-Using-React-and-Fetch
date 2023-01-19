@@ -1,8 +1,8 @@
 import React, { useEffect, useState,useContext } from "react";
 import "../../styles/home.css";
-import { Characters } from "../component/characters.jsx";
-import { Vehicle } from "../component/vehicle.jsx";
-import { Planets } from "../component/planets.jsx";
+import { Characters } from "../component/cardCharacters.jsx";
+import { Vehicle } from "../component/cardVehicle.jsx";
+import { Planets } from "../component/cardPlanets.jsx";
 import { Context } from "../store/appContext.js";
 
 export const Home = () => {

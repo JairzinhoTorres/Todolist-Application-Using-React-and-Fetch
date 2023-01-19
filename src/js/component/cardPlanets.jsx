@@ -16,13 +16,10 @@ export const Planets = ({ nombrePlaneta, diametroPlaneta, climaPlaneta,id}) => {
         <p className="card-text"> {diametroPlaneta} </p>
         <p className="card-text"> {climaPlaneta} </p>
         <p className="card-text mt-2"> 30, 00 US$. </p>
-        <Link to={"/viewPlanets/"+id} className="btn btn-primary"> Detalles del planeta:{id}</Link>
-        <a
-          href="https://www.funko.com/search?term=one%20piece"
-          className="btn  bg-warning text-dark border border-0 mt-3"
-        >
+        <Link to={"/viewPlanets/"+id} className="btn bg-dark text-white"> Detalles del planeta:{id}</Link>
+        <button className="btn bg-warning text-dark border border-0 mt-3" onClick={()=>actions.agregarFavorito()}>
           <i className="fa fa-heart"> </i>
-        </a>
+          </button>
       </div>
     </div>
   );
